@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build with AI 2026 - Day 1</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="ufo-bg"></div>
+    <div class="stars"></div>
+
+    <div class="container">
+        <section class="main-content">
+            <div class="card progress-card">
+                <header class="header">
+                    <img src="logo.png" alt="Build with AI 2026 Logo" class="logo">
+                    <h1 class="title">Build with AI 2026</h1>
+                    <h2 class="subtitle">Polytechnic University of the Philippines — Day 1</h2>
+                </header>
+
+                <div class="progress-container">
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+                    <span class="progress-text" id="progressText">0%</span>
+                </div>
+
+                <div class="topics-list" id="topicsList">
+                    <!-- Topic 1 -->
+                    <div class="topic-item" id="topic1">
+                        <div class="topic-header">
+                            <label class="checkbox-container">
+                                <input type="checkbox" disabled id="check1">
+                                <span class="checkmark"></span>
+                            </label>
+                            <div class="topic-info">
+                                <h4>1. Getting Started with Cloud Credits: Claiming and Practical Use</h4>
+                                <a href="https://trygcp.dev/claim/deveco-gdg-b5420afdb14" target="_blank"
+                                    class="claim-btn">Claim Cloud Credits</a>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <input type="text" placeholder="Enter keyword here..." id="input1" class="keyword-input">
+                            <span class="status-icon" id="status1"></span>
+                        </div>
+                    </div>
+
+                    <!-- Topic 2 -->
+                    <div class="topic-item" id="topic2">
+                        <div class="topic-header">
+                            <label class="checkbox-container">
+                                <input type="checkbox" disabled id="check2">
+                                <span class="checkmark"></span>
+                            </label>
+                            <div class="topic-info">
+                                <h4>2. AI Made Simple: Building Smart Solutions with Vertex AI and Gemma</h4>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <input type="text" placeholder="Enter keyword here..." id="input2" class="keyword-input">
+                            <span class="status-icon" id="status2"></span>
+                        </div>
+                    </div>
+
+                    <!-- Topic 3 -->
+                    <div class="topic-item" id="topic3">
+                        <div class="topic-header">
+                            <label class="checkbox-container">
+                                <input type="checkbox" disabled id="check3">
+                                <span class="checkmark"></span>
+                            </label>
+                            <div class="topic-info">
+                                <h4>3. From Data to Insights: Using the IoT Kit for AI Integration</h4>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <input type="text" placeholder="Enter keyword here..." id="input3" class="keyword-input">
+                            <span class="status-icon" id="status3"></span>
+                        </div>
+                    </div>
+
+                    <!-- Topic 4 -->
+                    <div class="topic-item" id="topic4">
+                        <div class="topic-header">
+                            <label class="checkbox-container">
+                                <input type="checkbox" disabled id="check4">
+                                <span class="checkmark"></span>
+                            </label>
+                            <div class="topic-info">
+                                <h4>4. Break the Pull: Vibecoding with Antigravity</h4>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <input type="text" placeholder="Enter keyword here..." id="input4" class="keyword-input">
+                            <span class="status-icon" id="status4"></span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="completion-section hidden" id="completionSection">
+                    <p class="success-message">You're all set!</p>
+                    <a href="https://cert.gdgpup.org/" target="_blank" class="cert-btn" id="certBtn">Get Certificate</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
