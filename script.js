@@ -31,6 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
         topicItem.classList.add('completed');
         checkbox.checked = true;
         inputField.disabled = true; // Optional: disable after success
+        
+        // Enable next input
+        const nextInput = document.getElementById(`input${id + 1}`);
+        if (nextInput) {
+            nextInput.disabled = false;
+        }
+
         completedCount++;
         updateProgress();
     }

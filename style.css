@@ -17,7 +17,7 @@
 
 body {
     background-color: var(--bg-color);
-    background-image: url('background.png');
+    background-image: url('background.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -443,14 +443,47 @@ body {
     transform: translateY(1px);
 }
 
+.claim-code {
+    margin-bottom: 30px;
+    color: #e2e8f0;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.claim-code strong {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 20px;
+    background: rgba(69, 243, 255, 0.1);
+    border: 1px dashed var(--primary-color);
+    border-radius: 8px;
+    text-shadow: 0 0 10px rgba(69, 243, 255, 0.5);
+}
+
 /* Responsive */
 @media (max-width: 600px) {
+    .container {
+        margin-top: 50px;
+        padding: 20px 10px;
+    }
+
     .card {
         padding: 25px 20px;
     }
 
+    .logo {
+        max-width: 140px;
+    }
+
     .title {
-        font-size: 2rem;
+        font-size: 1.8rem;
+    }
+
+    .subtitle {
+        font-size: 0.95rem;
     }
 
     .topic-header {
