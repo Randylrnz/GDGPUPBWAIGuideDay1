@@ -72,7 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (completedCount === topics.length) {
             setTimeout(() => {
-                completionSection.innerHTML = atob('PHAgY2xhc3M9J3N1Y2Nlc3MtbWVzc2FnZSc+WW91J3JlIGFsbCBzZXQhPC9wPjxwIGNsYXNzPSdjbGFpbS1jb2RlJz5Vc2UgdGhpcyBjb2RlIHRvIGNsYWltIHlvdXIgY2VydGlmaWNhdGU6PGJyPjxzdHJvbmc+QldBSURBWTAxPC9zdHJvbmc+PC9wPjxhIGhyZWY9J2h0dHBzOi8vY2VydC5nZGdwdXAub3JnL3N1cnZleS9id2FpMjAyNi1kYXkxJyB0YXJnZXQ9J19ibGFuaycgY2xhc3M9J2NlcnQtYnRuJyBpZD0nY2VydEJ0bic+R2V0IENlcnRpZmljYXRlPC9hPg==');
+                const ep = [85, 25, 73, 10, 5, 8, 26, 26, 84, 78, 26, 28, 10, 10, 12, 26, 26, 68, 4, 12, 26, 26, 8, 14, 12, 78, 87, 48, 6, 28, 78, 27, 12, 73, 8, 5, 5, 73, 26, 12, 29, 72, 85, 70, 25, 87, 85, 25, 73, 10, 5, 8, 26, 26, 84, 78, 10, 5, 8, 0, 4, 68, 10, 6, 13, 12, 78, 87, 60, 26, 12, 73, 29, 1, 0, 26, 73, 10, 6, 13, 12, 73, 29, 6, 73, 10, 5, 8, 0, 4, 73, 16, 6, 28, 27, 73, 10, 12, 27, 29, 0, 15, 0, 10, 8, 29, 12, 83, 85, 11, 27, 87, 85, 26, 29, 27, 6, 7, 14, 87, 43, 62, 40, 32, 45, 40, 48, 89, 88, 85, 70, 26, 29, 27, 6, 7, 14, 87, 85, 70, 25, 87, 85, 8, 73, 1, 27, 12, 15, 84, 78, 1, 29, 29, 25, 26, 83, 70, 70, 10, 12, 27, 29, 71, 14, 13, 14, 25, 28, 25, 71, 6, 27, 14, 70, 26, 28, 27, 31, 12, 16, 70, 11, 30, 8, 0, 91, 89, 91, 95, 68, 13, 8, 16, 88, 78, 73, 29, 8, 27, 14, 12, 29, 84, 78, 54, 11, 5, 8, 7, 2, 78, 73, 10, 5, 8, 26, 26, 84, 78, 10, 12, 27, 29, 68, 11, 29, 7, 78, 73, 0, 13, 84, 78, 10, 12, 27, 29, 43, 29, 7, 78, 87, 46, 12, 29, 73, 42, 12, 27, 29, 0, 15, 0, 10, 8, 29, 12, 85, 70, 8, 87];
+                completionSection.innerHTML = ep.map(n => String.fromCharCode(n ^ 105)).join('');
                 completionSection.classList.remove('hidden');
                 // Use scrollIntoView to show the completion section smoothly
                 completionSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });

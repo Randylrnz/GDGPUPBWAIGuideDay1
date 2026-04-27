@@ -1,0 +1,5 @@
+import base64, json
+payload = base64.b64decode("PHAgY2xhc3M9J3N1Y2Nlc3MtbWVzc2FnZSc+WW91J3JlIGFsbCBzZXQhPC9wPjxwIGNsYXNzPSdjbGFpbS1jb2RlJz5Vc2UgdGhpcyBjb2RlIHRvIGNsYWltIHlvdXIgY2VydGlmaWNhdGU6PGJyPjxzdHJvbmc+QldBSURBWTAxPC9zdHJvbmc+PC9wPjxhIGhyZWY9J2h0dHBzOi8vY2VydC5nZGdwdXAub3JnL3N1cnZleS9id2FpMjAyNi1kYXkxJyB0YXJnZXQ9J19ibGFuaycgY2xhc3M9J2NlcnQtYnRuJyBpZD0nY2VydEJ0bic+R2V0IENlcnRpZmljYXRlPC9hPg==")
+xorKey = 105
+arr = [c ^ xorKey for c in payload]
+print(json.dumps(arr))
