@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     const topics = [
-        { id: 1, keyword: 'CLOUDS' },
-        { id: 2, keyword: 'AILABU' },
-        { id: 3, keyword: 'ARDUINAUR' },
-        { id: 4, keyword: 'LASTNATO' }
+        { id: 1, keyword: 'DONE' },
+        { id: 2, keyword: 'CLOUDS' },
+        { id: 3, keyword: 'AILABU' },
+        { id: 4, keyword: 'ARDUINAUR' },
+        { id: 5, keyword: 'LASTNATO' }
     ];
 
     let completedCount = 0;
