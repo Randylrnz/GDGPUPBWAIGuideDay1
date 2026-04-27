@@ -252,6 +252,19 @@ body {
     color: #fff;
 }
 
+.topic-note {
+    font-size: 0.85rem;
+    color: #8c92a6;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.btn-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
 .claim-btn {
     display: inline-block;
     padding: 6px 12px;
