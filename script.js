@@ -71,12 +71,30 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 15);
 
         if (completedCount === topics.length) {
-            setTimeout(() => {
-                const ep = [85, 25, 73, 10, 5, 8, 26, 26, 84, 78, 26, 28, 10, 10, 12, 26, 26, 68, 4, 12, 26, 26, 8, 14, 12, 78, 87, 48, 6, 28, 78, 27, 12, 73, 8, 5, 5, 73, 26, 12, 29, 72, 85, 70, 25, 87, 85, 25, 73, 10, 5, 8, 26, 26, 84, 78, 10, 5, 8, 0, 4, 68, 10, 6, 13, 12, 78, 87, 60, 26, 12, 73, 29, 1, 0, 26, 73, 10, 6, 13, 12, 73, 29, 6, 73, 10, 5, 8, 0, 4, 73, 16, 6, 28, 27, 73, 10, 12, 27, 29, 0, 15, 0, 10, 8, 29, 12, 83, 85, 11, 27, 87, 85, 26, 29, 27, 6, 7, 14, 87, 43, 62, 40, 32, 45, 40, 48, 89, 88, 85, 70, 26, 29, 27, 6, 7, 14, 87, 85, 70, 25, 87, 85, 8, 73, 1, 27, 12, 15, 84, 78, 1, 29, 29, 25, 26, 83, 70, 70, 10, 12, 27, 29, 71, 14, 13, 14, 25, 28, 25, 71, 6, 27, 14, 70, 26, 28, 27, 31, 12, 16, 70, 11, 30, 8, 0, 91, 89, 91, 95, 68, 13, 8, 16, 88, 78, 73, 29, 8, 27, 14, 12, 29, 84, 78, 54, 11, 5, 8, 7, 2, 78, 73, 10, 5, 8, 26, 26, 84, 78, 10, 12, 27, 29, 68, 11, 29, 7, 78, 73, 0, 13, 84, 78, 10, 12, 27, 29, 43, 29, 7, 78, 87, 46, 12, 29, 73, 42, 12, 27, 29, 0, 15, 0, 10, 8, 29, 12, 85, 70, 8, 87];
-                completionSection.innerHTML = ep.map(n => String.fromCharCode(n ^ 105)).join('');
-                completionSection.classList.remove('hidden');
-                // Use scrollIntoView to show the completion section smoothly
-                completionSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            setTimeout(async () => {
+                try {
+                    const finalInput = document.getElementById('input6').value.trim().toUpperCase();
+                    const pwUtf8 = new TextEncoder().encode(finalInput);
+                    const pwHash = await crypto.subtle.digest('SHA-256', pwUtf8);
+                    const key = await crypto.subtle.importKey('raw', pwHash, 'AES-GCM', false, ['decrypt']);
+                    
+                    const hexStr = "43d194df993a8b40590784330493326ab4b7c0a3cc2f01954c4c46943b229fa89bdee7eab06f519916db92381cbfc230d5b804666361e1f27cc29820902c9d18658bd0774da83bfc4f819f6b141653fb11be85e9dd8db5f264f8144ee6efc4c093e1af06c80180e56864eda237aa9b14bebfdd572693dc15d5d23049ebc3e81644216087290c0d31d95224cc0fd0421783be69465b51fee03d668cd9d98c2b7723883d22da1b7caea0a153289570363934e9ff6345af68f1386b8d3dc45c98f67d166edc3c7ebda6b629f2d92bafbfe90ec9ad75327126edfb6f1fe7aee389952382d412843a6f800d6e3caaf249408c99fe4b4d12e8d25757cf66e789a8e49a1b890c17e4da42b6abd2a3d32b2d072f6c2b97ef5bbc";
+                    const encryptedBytes = new Uint8Array(hexStr.match(/.{1,2}/g).map(byte => parseInt(byte, 16)));
+                    const iv = new Uint8Array(12);
+                    
+                    const decryptedBuffer = await crypto.subtle.decrypt(
+                        { name: 'AES-GCM', iv: iv },
+                        key,
+                        encryptedBytes
+                    );
+                    const decryptedHtml = new TextDecoder().decode(decryptedBuffer);
+                    
+                    completionSection.innerHTML = decryptedHtml;
+                    completionSection.classList.remove('hidden');
+                    completionSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                } catch (e) {
+                    console.error("Decryption error");
+                }
             }, 600); // Wait for progress bar animation
         }
     }
